@@ -1,0 +1,28 @@
+---
+# tasks file for configure_sudo
+
+- name: Creating sudo users configuration.
+  lineinfile:
+    dest: '{{ configure_sudo_sudoers_dir }}/{{ configure_sudo_user_file }}'
+    line: '{{ item.configure_sudo_users_name }} {{ item.configure_sudo_users_hosts }}=({{ item.configure_sudo_users_operator }}) {{ item.configure_sudo_users_option | default(omit) }} {{ item.configure_sudo_users_command }}'
+    state: '{{ item.configure_sudo_users_state }}'
+    create: yes
+    mode: 0440
+    validate: 'visudo -cf %s'
+  with_items: '{{ configure_sudo_users }}'
+  when:
+    - configure_sudo_setup_users | bool
+    - item.configure_sudo_users_name | length > 0
+
+- name: Creating sudo groups configuration.
+  lineinfile:
+    dest: '{{ configure_sudo_sudoers_dir }}/{{ configure_sudo_group_file }}'
+    line: '%{{ item.configure_sudo_groups_name }} {{ item.configure_sudo_groups_hosts }}=({{ item.configure_sudo_groups_operator }}) {{ item.configure_sudo_groups_option }} {{ item.configure_sudo_groups_command }}'
+    state: '{{ item.configure_sudo_groups_state }}'
+    create: yes
+    mode: 0440
+    validate: 'visudo -cf %s'
+  with_items: '{{ configure_sudo_groups }}'
+  when:
+    - configure_sudo_setup_groups | bool
+    - item.configure_sudo_groups_name | length > 0

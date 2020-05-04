@@ -1,0 +1,52 @@
+---
+# defaults file for configure_sudo
+
+configure_sudo_setup_users: true
+configure_sudo_setup_groups: true
+configure_sudo_user_file: 'u_{{ item.configure_sudo_users_name }}'
+configure_sudo_group_file: 'g_{{ item.configure_sudo_groups_name }}'
+
+configure_sudo_users:
+  - configure_sudo_users_name: ''
+    configure_sudo_users_hosts: ''
+    configure_sudo_users_operator: ''
+    configure_sudo_users_option: ''
+    configure_sudo_users_command: ''
+    configure_sudo_users_state: ''
+
+configure_sudo_groups:
+  - configure_sudo_groups_name: ''
+    configure_sudo_groups_hosts: ''
+    configure_sudo_groups_operator: ''
+    configure_sudo_groups_option: ''
+    configure_sudo_groups_command: ''
+    configure_sudo_groups_state: ''
+
+# Examples
+#configure_sudo_users:
+#  - configure_sudo_users_name: 'testuser1'
+#    configure_sudo_users_hosts: 'ALL'
+#    configure_sudo_users_operator: 'ALL'
+#    configure_sudo_users_option: ''
+#    configure_sudo_users_command: '/bin/whoami'
+#    configure_sudo_users_state: 'present'
+#  - configure_sudo_users_name: 'testuser2'
+#    configure_sudo_users_hosts: 'ALL'
+#    configure_sudo_users_operator: 'ALL'
+#    configure_sudo_users_option: 'NOPASSWD:'
+#    configure_sudo_users_command: '/bin/whoami'
+#    configure_sudo_users_state: 'present'
+#
+#configure_sudo_groups:
+#  - configure_sudo_groups_name: 'testgroup1'
+#    configure_sudo_groups_hosts: 'ALL'
+#    configure_sudo_groups_operator: 'ALL'
+#    configure_sudo_groups_option: ''
+#    configure_sudo_groups_command: '/bin/whoami'
+#    configure_sudo_groups_state: 'present'
+#  - configure_sudo_groups_name: 'testgroup2'
+#    configure_sudo_groups_hosts: 'ALL'
+#    configure_sudo_groups_operator: 'ALL'
+#    configure_sudo_groups_option: 'NOPASSWD:'
+#    configure_sudo_groups_command: '/bin/whoami'
+#    configure_sudo_groups_state: 'present'

@@ -1,0 +1,4 @@
+---
+# vars file for configure_sudo
+
+configure_sudo_sudoers_dir: /etc/sudoers.d
