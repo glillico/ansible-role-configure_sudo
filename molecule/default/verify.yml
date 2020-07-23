@@ -3,7 +3,35 @@
 
 - name: Verify
   hosts: all
+
   tasks:
-  - name: Example assertion
+
+  - name: Retrieve the file information for '/etc/sudoers.d/u_testuser'.
+    stat:
+      path: '/etc/sudoers.d/u_testuser'
+    register: remote_file
+
+  - name: Test that the '/etc/sudoers.d/u_testuser file was created correctly.
     assert:
-      that: true
+      that:
+        - remote_file.stat.exists
+        - remote_file.stat.isreg
+        - remote_file.stat.path == '/etc/sudoers.d/u_testuser'
+        - remote_file.stat.mode == '0440'
+        - remote_file.stat.pw_name == 'root'
+        - remote_file.stat.gr_name == 'root'
+
+  - name: Retrieve the file information for '/etc/sudoers.d/g_testgroup'.
+    stat:
+      path: '/etc/sudoers.d/g_testgroup'
+    register: remote_file
+
+  - name: Test that the '/etc/sudoers.d/g_testgroup file was created correctly.
+    assert:
+      that:
+        - remote_file.stat.exists
+        - remote_file.stat.isreg
+        - remote_file.stat.path == '/etc/sudoers.d/g_testgroup'
+        - remote_file.stat.mode == '0440'
+        - remote_file.stat.pw_name == 'root'
+        - remote_file.stat.gr_name == 'root'

@@ -1,0 +1,18 @@
+---
+# vars file for configure_sudo
+
+configure_sudo_users:
+ - configure_sudo_users_name: 'testuser'
+   configure_sudo_users_hosts: 'ALL'
+   configure_sudo_users_operator: 'ALL'
+   configure_sudo_users_option: ''
+   configure_sudo_users_command: '/bin/whoami'
+   configure_sudo_users_state: 'present'
+
+configure_sudo_groups:
+ - configure_sudo_groups_name: 'testgroup'
+   configure_sudo_groups_hosts: 'ALL'
+   configure_sudo_groups_operator: 'ALL'
+   configure_sudo_groups_option: ''
+   configure_sudo_groups_command: '/bin/whoami'
+   configure_sudo_groups_state: 'present'
