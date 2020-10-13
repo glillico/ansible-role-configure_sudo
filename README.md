@@ -1,5 +1,7 @@
 # Ansible Role : configure_sudo
 
+[![Build Status](https://github.com/glillico/ansible-role-configure_sudo/workflows/build/badge.svg)](https://github.com/glillico/ansible-role-configure_sudo/actions?query=workflow%3Abuild)
+
 This role configures files in the /etc/sudoers.d/ directry on the server.
 
 ## Requirements
