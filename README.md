@@ -1,6 +1,6 @@
 # Ansible Role : configure_sudo
 
-[![Ansible Molecule](https://github.com/glillico/ansible-role-configure_sudo/workflows/Ansible%20Molecule/badge.svg)](https://github.com/glillico/ansible-role-configure_sudo/actions?query=workflow%3AAnsible%20Molecule)
+[![molecule](https://github.com/glillico/ansible-role-configure_sudo/workflows/molecule/badge.svg)](https://github.com/glillico/ansible-role-configure_sudo/actions?query=workflow%3Amolecule)
 
 This role configures files in the /etc/sudoers.d/ directry on the server.
 
