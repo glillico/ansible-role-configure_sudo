@@ -16,7 +16,6 @@
   with_items: '{{ configure_sudo_users }}'
   when:
     - configure_sudo_setup_users | bool
-    - item.configure_sudo_users_name | length > 0
 
 - name: Creating sudo groups configuration.
   lineinfile:
@@ -33,4 +32,3 @@
   with_items: '{{ configure_sudo_groups }}'
   when:
     - configure_sudo_setup_groups | bool
-    - item.configure_sudo_groups_name | length > 0
