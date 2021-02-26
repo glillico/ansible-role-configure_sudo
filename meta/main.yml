@@ -1,5 +1,6 @@
 galaxy_info:
-  author: Graham Lillico
+  role_name: configure_sudo
+  author: glillico
   description: Configure sudoers files.
   license: license (MIT)
   min_ansible_version: 2.4
