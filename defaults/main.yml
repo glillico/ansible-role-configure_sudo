@@ -1,23 +1,21 @@
 ---
 # defaults file for configure_sudo
 
-configure_sudo_setup_users: true
-configure_sudo_setup_groups: true
 configure_sudo_user_file: 'u_{{ item.configure_sudo_users_name }}'
 configure_sudo_group_file: 'g_{{ item.configure_sudo_groups_name }}'
 
 configure_sudo_users:
-  - configure_sudo_users_name: ''
-    configure_sudo_users_hosts: ''
-    configure_sudo_users_operator: ''
-    configure_sudo_users_option: ''
-    configure_sudo_users_command: ''
-    configure_sudo_users_state: ''
+  - configure_sudo_users_name:
+    configure_sudo_users_hosts:
+    configure_sudo_users_operator:
+    configure_sudo_users_option:
+    configure_sudo_users_command:
+    configure_sudo_users_state:
 
 configure_sudo_groups:
-  - configure_sudo_groups_name: ''
-    configure_sudo_groups_hosts: ''
-    configure_sudo_groups_operator: ''
-    configure_sudo_groups_option: ''
-    configure_sudo_groups_command: ''
-    configure_sudo_groups_state: ''
+  - configure_sudo_groups_name:
+    configure_sudo_groups_hosts:
+    configure_sudo_groups_operator:
+    configure_sudo_groups_option:
+    configure_sudo_groups_command:
+    configure_sudo_groups_state:

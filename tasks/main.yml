@@ -1,7 +1,7 @@
 ---
 # tasks file for configure_sudo
 
-- name: Creating sudo users configuration.
+- name: Create or remove sudo users configurations.
   lineinfile:
     dest: '{{ configure_sudo_sudoers_dir }}/{{ configure_sudo_user_file }}'
     line: >-
@@ -15,9 +15,10 @@
     validate: 'visudo -cf %s'
   with_items: '{{ configure_sudo_users }}'
   when:
-    - configure_sudo_setup_users | bool
+    ( item.configure_sudo_users_state == 'absent' ) or
+    ( item.configure_sudo_users_state == 'present' )
 
-- name: Creating sudo groups configuration.
+- name: Create or remove sudo groups configurations.
   lineinfile:
     dest: '{{ configure_sudo_sudoers_dir }}/{{ configure_sudo_group_file }}'
     line: >-
@@ -31,4 +32,5 @@
     validate: 'visudo -cf %s'
   with_items: '{{ configure_sudo_groups }}'
   when:
-    - configure_sudo_setup_groups | bool
+    ( item.configure_sudo_groups_state == 'absent' ) or
+    ( item.configure_sudo_groups_state == 'present' )
